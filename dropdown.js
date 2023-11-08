@@ -1,10 +1,14 @@
-const dropDown = document.querySelectorAll('.drop-down');
-const dropDownContent = document.querySelectorAll('.drop-down-content');
+export default class Dropdown {
+  constructor(element) {
+    this.element = element;
+    this.button = this.element.querySelector('.drop-down');
+    this.content = this.element.querySelector('.drop-down-content');
+    this.button.addEventListener('click', () => {
+      this.toggleContent();
+    });
+  }
 
-// create an event listener for each drop down
-
-dropDown.forEach((item, index) => {
-  item.addEventListener('click', () => {
-    dropDownContent[index].classList.toggle('visible');
-  });
-});
+  toggleContent() {
+    this.content.classList.toggle('visible');
+  }
+}
